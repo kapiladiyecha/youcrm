@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+        <package name="login"  extends="json-default">
+
+ <!--                    interceptors              -->
+
+
+    <interceptors>
+    <interceptor class="com.youcrm.interceptor.user.UserLoginInterceptor" name="loginInterceptor"> </interceptor>
+    <interceptor-stack name="loginStack">
+    <interceptor-ref name="loginInterceptor" />
+    <interceptor-ref name="defaultStack" />
+    </interceptor-stack>
+    </interceptors>
+
+
+
+
+
+                <!--                   actions                    -->
+                <action name="login" class="com.youcrm.action.user.UserAction" method="userLoginValidation">
+                        <result name="success" type="json"></result>
+                      <!--  <result name="error">welcome.jsp</result>-->
+                </action>
+
+                <action name="logOut" class="com.youcrm.action.user.UserAction" method="logOut">
+                        <interceptor-ref name="loginStack" />
+                </action>
+
+
+                <action name="addUsers" class="com.youcrm.action.user.UserAction" method="addUser">
+
+
+
+                        <result name="success" type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+
+
+
+                </action>
+
+                <action name="UserList" class="com.youcrm.action.user.UserAction" method="userDetailList">
+
+                        <result name="success"  type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+                </action>
+
+                <action name="addDesignation" class="com.youcrm.action.user.UserAction" method="addDesignation">
+
+                        <result name="success"  type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+                </action>
+
+
+                <action name="DesignationList" class="com.youcrm.action.user.UserAction" method="designationList">
+
+                        <result name="success"  type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+                </action>
+
+
+                <action name="deleteUser" class="com.youcrm.action.user.UserAction" method="deleteUser">
+
+                        <result name="success"  type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+                </action>
+
+
+
+                <action name="updateUser" class="com.youcrm.action.user.UserAction" method="updateFetchUser">
+
+                        <result name="success"  type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+                </action>
+
+
+                <action name="update" class="com.youcrm.action.user.UserAction" method="updateUser">
+
+                        <result name="success"  type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+                </action>
+
+                <action name="deleteDesignation" class="com.youcrm.action.user.UserAction" method="deleteDesignation">
+
+                        <result name="success"  type="json"></result>
+
+                        <result name="error"  type="json"></result>
+
+                </action>
+
+
+            <action name = "addStatus" class="com.youcrm.action.customer.CustomerAction" method="addStatus">
+
+                <result name="success" type="json"></result>
+
+            </action>
+
+            <action name="fetchStatus" class="com.youcrm.action.customer.CustomerAction" method="getStatus">
+
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="delStatus" class="com.youcrm.action.customer.CustomerAction" method="deleteStatus">
+                <result name = "success" type="json"></result>
+            </action>
+
+            <action name="addCountry" class="com.youcrm.action.location.LocationAction" method="insertCountry">
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="fetchCountry" class="com.youcrm.action.location.LocationAction" method="loadCountry">
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="CountryList" class="com.youcrm.action.location.LocationAction" method ="countryList">
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="delCountry" class="com.youcrm.action.location.LocationAction" method="deleteCountry">
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="addState" class="com.youcrm.action.location.LocationAction" method="insertState">
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="fetchState" class="com.youcrm.action.location.LocationAction" method="loadStateGrid">
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="delState" class="com.youcrm.action.location.LocationAction" method="deleteState">
+                <result name = "success" type="json"></result>
+            </action>
+
+            <action name="addCity" class="com.youcrm.action.location.LocationAction" method="insertCity">
+                <result name="success" type="json"></result>
+            </action>
+
+            <action name="stateDropDown" class = "com.youcrm.action.location.LocationAction" method = "stateList">
+                <result name = "success" type="json"></result>
+            </action>
+
+            <action name="fetchCity" class="com.youcrm.action.location.LocationAction" method="loadCityGrid">
+                <result name = "success" type="json"></result>
+            </action>
+
+            <action name="delCity" class="com.youcrm.action.location.LocationAction" method="deleteCity">
+                <result name = "success" type="json"></result>
+            </action>
+
+            <action name="userRole" class="com.youcrm.action.userrole.UserRoleAction" method="addUserRole">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="userRoleList" class="com.youcrm.action.userrole.UserRoleAction" method="userRoleDetailList">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="deleteUserRole" class="com.youcrm.action.userrole.UserRoleAction" method="deleteUserRole">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="updateUserRole" class="com.youcrm.action.userrole.UserRoleAction" method="updateFetchUserRole">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="updateRole" class="com.youcrm.action.userrole.UserRoleAction" method="updateUserRole">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+            <action name = "addCustomerData" class="com.youcrm.action.customer.CustomerAction" method="addCustomer">
+
+                <result name="success" type="json"></result>
+
+                <result name="error" type="json"></result>
+
+            </action>
+
+            <action name="viewCustomerData" class="com.youcrm.action.customer.CustomerAction" method="customerDetailList">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="deleteCustomerData" class="com.youcrm.action.customer.CustomerAction" method="deleteCustomer">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="updateFetchCustomerData" class="com.youcrm.action.customer.CustomerAction" method="updateFetchCustomer">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+
+            <action name="updateCustomerData" class="com.youcrm.action.customer.CustomerAction" method="updateCustomer">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="viewLeadData" class="com.youcrm.action.customer.ViewLeadsAction" method="viewLeadDetailList">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="addLeadData" class="com.youcrm.action.customer.ViewLeadsAction" method="addLead">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="deleteLeadData" class="com.youcrm.action.customer.ViewLeadsAction" method="deleteLead">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="addComapnyDrowpDown" class="com.youcrm.action.customer.CustomerAction" method="fetchCompanyNameList">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+            <action name="addFollowUpDetail" class="com.youcrm.action.customer.FollowUpAction" method="addFollowupDetail">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+
+            <action name="updateFetchLeadData" class="com.youcrm.action.customer.ViewLeadsAction" method="updateFetchLead">
+
+                <result name="success"  type="json"></result>
+
+                <result name="error"  type="json"></result>
+
+            </action>
+
+        </package>
+
+</struts>
